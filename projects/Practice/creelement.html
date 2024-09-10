@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <script>
+
+        let users = [
+            { name: 'xyz', age: 20 },
+            { name: 'abc', age: 21 },
+        ]
+
+        function display() {
+            let box = document.getElementById('box')
+
+            users.forEach((user, index) => {
+                let div = document.createElement('div');
+                div.innerHTML = `
+                       <h2>User Name : ${user.name}</h2>
+                       <h2>User Age : ${user.age}</h2>
+                           `
+                box.appendChild(div)
+            })
+        }
+        display()
+
+    </script>
+
+</body>
+
+</html>

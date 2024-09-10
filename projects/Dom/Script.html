@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- script tag in head tag-->
+    <script>
+        function fun() {
+            document.getElementById('btn').innerText = 'Js dynamic changes happen'
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Script tag we write two places ---head tag and body tag also  -->
+
+    <h3 id="btn">Changing text here</h3>
+    <button type="button" onclick="fun()">Click here</button>
+    
+<!-- ------------------- -->
+
+    <h3 id="btn1">Changing text here</h3>
+    <button type="button" onclick="fun1()">Click here</button>
+
+    <!-- script tag in body tag -->
+
+    <script>
+        function fun1() {
+            document.getElementById('btn1').innerText = 'Js dynamic changes happen'
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btns {
+            border: 1px solid;
+            background-color: blue;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="frm">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="username"><br>
+        <label for="pwd">Password</label><br>
+        <input type="text" id="pwd" name="pwd"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2 id="heading1"></h2>
+    <h2 id="heading2"></h2>
+    <script>
+
+        let frm = document.getElementById('frm');
+        const heading1 = document.getElementById('heading1')
+        const heading2 = document.getElementById('heading2')
+
+        frm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            console.log(e.target.username.value);
+            console.log(e.target.pwd.value);
+
+            heading1.innerText = "UserName : " + e.target.username.value
+            heading2.innerText ='Password : '+ e.target.pwd.value
+
+        })
+
+    </script>
+</body>
+
+</html>

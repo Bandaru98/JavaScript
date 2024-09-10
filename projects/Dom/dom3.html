@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn">Click</button>
+    <div id="divid"></div>
+
+    <script>
+
+        <h2> setAttribute & getAttribute</h2>
+
+        const button = document.getElementById('btn')
+        const div = document.getElementById('divid')
+
+        button.addEventListener('click', function () {
+
+            //    <div id="divid"></div>------get elementbyid works below----------------
+
+            // div.style.backgroundColor = 'blue';
+            // div.style.border = '1px solid';
+            // div.style.width = '100px';
+            // div.style.height = '100px';
+            // div.innerText = 'Welcome';
+
+
+            //the outputp is-------console.log(divid); -----------<div id="divid" class="box"></div>-----
+            //dynamicalli cretae by setAttribute class attribute and value--------
+
+            console.log(divid);
+
+
+            //setAttribute----------we set the element attribute--------
+            div.setAttribute('class', 'box')
+
+
+            //getAttribute ----------we get the attribute value---------
+            let id = div.getAttribute('id')
+            console.log(id);
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>
