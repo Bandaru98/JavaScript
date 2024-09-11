@@ -157,7 +157,8 @@ let strarr = [1, 2, 4, 6, 7, 8, 'm', 'k', 's', 'b']
 let starr = strarr.toString()
 console.log(starr);//1,2,4,6,7,8,m,k,s,b
 
-//map
+
+//map--3 parameters are value,index,array
 let marr = [1, 2, 3, 4, 5, 7, 6]
 function fun(x) {
     return x * 10
@@ -171,4 +172,20 @@ let b = a1.flat(Infinity)//means all brackets remove
 let bc = a1.flat(3)//3 means 3 brackets remove i mention 1 1 bracket remove
 console.log(b);//[1,  2, 3,  4,  5, 6,  8, 9, 10, 11,  12, 13]
 console.log(bc);//[1,  2, 3,  4,  5, 6,  8, 9, 10, 11,  12, 13]
+
+//reduce
+let rearray = [{ age: 100 }, { age: 30 }, { age: 50 }, { age: 20 }]
+let red = rearray.reduce((acumulator, currentvalue, index) => {
+    return acumulator + currentvalue.age
+}, 0)
+console.log(red);//200
+
+//entries
+let entryarr = [1, 2, 3]
+let items = entryarr.entries()
+for (let x of items) {
+    console.log(x);  //[ 0, 1 ] [ 1, 2 ] [ 2, 3 ]
+}
+
+
 

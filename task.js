@@ -70,7 +70,12 @@ let avgage=totaAge/totaPeople
 console.log(avgage);//20.22222222222222
 
 
-
+//task6
+//diff b/w == and === 
+let number=100
+let str='100'
+console.log(number==str);//true
+console.log(number===str);//false
 
 
 

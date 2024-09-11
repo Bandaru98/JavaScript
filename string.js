@@ -1,5 +1,5 @@
 //collection of words
-
+//length
 let str = 'madhu'
 let strlength = str.length
 console.log(strlength);
