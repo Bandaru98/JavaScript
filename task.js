@@ -77,10 +77,42 @@ let str='100'
 console.log(number==str);//true
 console.log(number===str);//false
 
+// task print only odd numbers
+let odd=[23,12,9,6,17,12,5,3,2,22,29,1,9,20]
+let finodd=odd.filter((item)=>{
+    return item%2!=0
+})
+console.log(finodd);//[23, 9, 17, 5, 3, 29,  1, 9]
 
+//task 
+let student = [
+    {name:'A',mark:80},
+    {name:'B',mark:83},
+    {name:'C',mark:87},
+    {name:'D',mark:78},
+    {name:'E',mark:81},
+]
+//foreach no need to write return keyword
+//map need return keyword when we use {}
+// map doesnot need return without curly brackets
 
+// student.forEach((item)=>{
+//      item.mark=item.mark+5;
+// })
+// console.log(student);
 
+student.map((item)=> item.mark=item.mark+5 )
+console.log(student);
+//here foreach & map are give same result
+// [
+//     { name: 'A', mark: 85 },
+//     { name: 'B', mark: 88 },
+//     { name: 'C', mark: 92 },
+//     { name: 'D', mark: 83 },
+//     { name: 'E', mark: 86 }
+//   ]
 
+// swap
 
-
-
+let j = 10;
+let k = 15;

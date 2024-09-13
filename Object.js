@@ -4,6 +4,7 @@
 // An object is a complex data structure that allows you to store collections of data. It is used to group related data 
 // and functionality together, consisting of properties (key-value pairs) and methods (functions).
 
+
 //creating Object
 
 let obj = {
@@ -23,12 +24,15 @@ console.log(obj);//{ name: 'keer', city: 'kadapa', state: 'AP', age: 26 }
 // , - Comma(,) separates different key-value pairs within the object.
 
 
+//Note: A Method in javascript is a property of an object whose value is a function.----------
+
 //ex1
 let person = {
     name: 'abc',
     from: 'AP',
     job: 'it sector',
     passion: 'Successful businessman',
+    //   A Method in javascript is a property of an object whose value is a function. 
     company: function () {
         console.log(`His name is ${person.name} from ${person.from} and working in ${person.job} and his dream is ${person.passion.split(' ')[1]} `);
     }
