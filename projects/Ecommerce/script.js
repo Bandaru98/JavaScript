@@ -26,7 +26,7 @@ function displayData() {
                     <h3>${item.title}</h3>
                 </div>
                 <div class = 'card-subtitle text-center mt-2'>
-                    <p>${item.description}</p>
+                    <p>${item.description.substring(0,90)}</p>
                 </div>
                 <div class = 'text-center mt-2'>
                     <p>$ ${item.price}</p>
