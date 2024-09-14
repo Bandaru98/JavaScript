@@ -127,3 +127,10 @@ swap()
 console.log("j = ", j, " k = ", k);//j =  15  k =  10
 
 
+//task8
+let user1={
+'user name':'xyz'
+}
+console.log(user1["user name"]);
+
+
