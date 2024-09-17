@@ -158,12 +158,11 @@ function abs(f, n) {
     }
 }
 let absaccess = new abs('abc', 'xyz')
-// console.log(absaccess);//abs { f: 'abc', n: 'xyz' }
+console.log(absaccess);//abs { f: 'abc', n: 'xyz' }
 // console.log(absaccess.fun1);//abc xyz
 // console.log(absaccess.fun2());//undefined
 
-//Inheritence
-// Inheritance example
+//Inheritence------------
 class person {
 	constructor(name) {
 		this.name = name;
@@ -189,4 +188,49 @@ console.log(student1.method());//Name of person: xyz, Student ID: 2
 
 
 
+// [OOP's] => Object Oriented Programing
 
+// Object => AN object is the instance of the class,it will be encapsulate data and behaviour. 
+// Class => It is used to create blueprint for object. It will be define set of properties and methods. 
+// Constructor => It is a special method that called when an object is instantiated, used to initialize object properties.
+// Inheritance => The ability of an class to inherit properties and method.
+// Encapsulation => the bundling of data and methods that operate on data into a single unit called.
+// Polymorphism => The ability of one object to take multiple forms. Method overloading and method overriding.
+// Abstraction => The process of simplifying complex system classes based on essential properties and behaviour they shear, while ignoring unnecessary details.
+// Instances => An individual occurrence of an object created from a class.
+// Method => A function that is a property of an object.
+// property => characteristics of an object usually represent in the form variable.
+// This Keyword => Refer to the current instance of the object which is used.
+// Mixins => A way to reuse a class's code in multiple class hierarchies.
+// getter and setter => used to get and set the value of the object properties.
+// property chain => a mechanism in JS by which an object inherit properties and method from a properties.
+// Super keyword => used inside there subclass or derived class constructor of the parent class.
+
+
+// Encapsulation => The bundling of properties and methods that work on the properties into a single unit called class
+
+// class user {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     info() {
+//         console.log(`user name is ${this.name} and his age is ${this.age}`);
+
+//     }
+// }
+// let user1=new user('xyz',30)
+// user1.info()
+
+//behind seen
+
+// function user(name,age){
+//      this.name=name
+//      this.age=age
+// }
+// user.prototype.info=function(){
+//     console.log(`user name is ${this.name} and his age is ${this.age}`);
+    
+// }
+// let user1=new user('xyz',20)
+// user1.info()

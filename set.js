@@ -3,7 +3,7 @@
 //  is not possible. The set can store any type of value whether primitive or objects. The elements of a set are iterable.
 //   Elements are always iterated in the insertion order.
 
-let set1 = new Set(["sumit","sumit","amit","anil","anish"]);
+let set1 = new Set(["sumit", "sumit", "amit", "anil", "anish"]);
 console.log(set1);//Set(4) { 'sumit', 'amit', 'anil', 'anish' }
 
 let set2 = new Set("fooooooood");
@@ -77,3 +77,63 @@ console.log(set5.size); // 13
 set5.forEach(value => {
     console.log(value);
 });
+
+
+
+// Convert Array to Set in JavaScript
+// means transforming an array into a Set object, which stores unique values and automatically removes duplicates. This is done using the new Set(array) constructor. It’s a useful way to clean up arrays and ensure data uniqueness in JavaScript.
+
+// Using spread Operator
+// Using the Set Constructor
+
+// Using spread Operator
+// Using the Set Constructor
+
+let array = [1, 1, 2, 2, 2, 2, 5, 5, 8]
+function dup() {
+    let set = new Set(array)
+    console.log(JSON.stringify([...set]));
+}
+dup()//[1,2,5,8]
+
+// Using the Set Constructor
+let array1 = [1, 1, 2, 2, 2, 2, 5, 5, 8]
+let set = new Set(array1)
+let newarray = Array.from(set)
+console.log(set);//Set(4) { 1, 2, 5, 8 }
+console.log(newarray);//[ 1, 2, 5, 8 ]
+
+//union of two sets---------union set is the combination of two elements
+// Using spread Operator
+// Using add() Method
+
+// Using spread Operator
+let arr1=new Set([1,2,3,4,5])
+let arr2=new Set([6,7,8])
+let union=new Set([...arr1,...arr2])
+console.log(union);//Set(8) { 1, 2, 3, 4, 5, 6, 7, 8 }
+
+// Using add() Method
+function unionfun(a1,a2){
+let union=new Set(a1)
+for(let n of a2){
+    union.add(n)
+}
+return union
+}
+let a1=new Set([1,2,3])
+let a2=new Set([4,5,6])
+console.log(unionfun(a1,a2));//Set(6) { 1, 2, 3, 4, 5, 6 }
+
+
+// setTimeout allows us to run a function once after the interval of time.
+// setInterval allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.
+function f() {
+    console.log('Hello');
+  } 
+  setTimeout(f, 1000);//Hello
+//with arguments
+function f1(a,b){
+    console.log(a+b);
+}
+setTimeout(f1,1000,10,20)//30
