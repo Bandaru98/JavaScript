@@ -1,4 +1,6 @@
-// closures involve the combination of functions and the scope in which they are defined. A closure allows a function to access variables from its scope, outer function scope, and the global scope. This creates a “closed-over” environment, preserving the state of the outer function even after it has finished executing.
+// closures involve the combination of functions and the scope in which they are defined. A closure allows a function to 
+// access variables from its scope, outer function scope, and the global scope. This creates a “closed-over” environment,
+//  preserving the state of the outer function even after it has finished executing.
 
 // Here’s a brief breakdown of closures:
 // Scope Chain: In JavaScript, each function has access to its variables, as well as variables from all its ancestor scopes, creating a chain of scopes known as the “scope chain.“
@@ -72,9 +74,13 @@ console.log(getarr[2]());//2
 
 
 
-// Scope: environment in which a variable or function is declared and can be accessed. JavaScript uses function-based scope meaning variables declared inside a function are locally scoped in while variables declared outside any function have global scope.
+// Scope: environment in which a variable or function is declared and can be accessed.
+//  JavaScript uses function-based scope meaning variables declared inside a function are locally scoped in while
+//   variables declared outside any function have global scope.
 
-// The Closures occur in JavaScript when a function “remembers” its lexical scope even if it’s executed the outside that scope. In other words, a closure allows a function to access variables from its containing function and even after the containing function has finished executing.
+// The Closures occur in JavaScript when a function “remembers” its lexical scope even if it’s executed
+//  the outside that scope. In other words, a closure allows a function to access variables from its containing
+//   function and even after the containing function has finished executing.
 
 //scope
 

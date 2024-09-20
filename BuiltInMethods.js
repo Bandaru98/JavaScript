@@ -3,6 +3,7 @@
 // //  when the data stored on an object is a function we call that a method.
 
 // // To differenciate between properties and methods, we can think of it this way:
+
 // //  A property is what an object has, while a method is what an object does.
 
 
