@@ -37,7 +37,7 @@ function lar(arr2) {
     if (arr2.length === 0) {
         console.log('Array is empty');
     } else {
-        return arr1.reduce((a, c) => (a > c) ? a : c)
+        return arr2.reduce((a, c) => (a > c) ? a : c)
     }
 }
 let arr2 = [10, 29, 30, 50]
