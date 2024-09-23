@@ -1,4 +1,7 @@
-// The call stack is a fundamental concept in JavaScript’s runtime environment. It is a mechanism that keeps track of the execution context of functions in a program. When a function is called, a new frame is pushed onto the top of the call stack, representing the context of that function’s execution. When the function completes, its frame is popped off the stack, allowing the program to return to the context of the calling function.
+// The call stack is a fundamental concept in JavaScript’s runtime environment. It is a mechanism that keeps track of the 
+// execution context of functions in a program. When a function is called, a new frame is pushed onto the top of the call stack, 
+// representing the context of that function’s execution. When the function completes, 
+// its frame is popped off the stack, allowing the program to return to the context of the calling function.
 
 // Here are key points about the call stack:
 
@@ -24,9 +27,7 @@ function f2(){
 f2()//welcome byf2
 
 
-
 //callback
-
 const mainFunction = (callback) => {
     setTimeout(() => {
         callback([10,20]);
