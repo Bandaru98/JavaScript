@@ -1,4 +1,5 @@
 const page = document.querySelector('body')
+
 page.addEventListener('mousemove', (event) => {
     let x = event.offsetX
     let y = event.offsetY
