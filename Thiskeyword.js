@@ -20,7 +20,6 @@ let chinnari = {
         console.log('Chinnari name is ' + this.name + ' and her ' + this.age + ' years old ');
 
     }
-
 }
 chinnari.child()//Chinnari name is Jeslyn and her 2 years old 
 
