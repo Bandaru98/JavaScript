@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+        }
+        #box1{
+            /* width: 100px;
+            height: 100px; */
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <h2>Box1</h2>
+        <div id="box2">
+            <h2>Box2</h2>
+        </div>
+    </div>
+
+    <!-- capturing-- parent to children 
+          Bubbling-- children to parent
+          addEventListener parameters 1.event 2.callback 3.true & false
+          addEventListener 3rd parameter ---- false is default value of bubbling
+          addEventListener 3rd parameter ---- true is default value of bubbling
+
+          -->
+
+    <script>
+        let box1 = document.getElementById('box1')
+        let box2 = document.getElementById('box2')
+
+        box1.addEventListener('click',()=>{
+            console.log('This is box1');
+        },true)
+
+        box2.addEventListener('click',()=>{
+            console.log('This is box2');
+        },true)
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Throttling is a technique that limits the frequency of function execution, allowing it to run at most once within a specified time interval. 
+    Its used to optimize performance during events like scrolling, resizing, or clicking. -->
+
+    <!-- Implementation----- create throttle function(callback and delay to control execution frequency over time.)
+                             Track Last Execution Time (Store the timestamp of the last function execution to calculate if the delay has passed.)
+                             Check Time Interval(only execute if sufficient time passed)
+                            Return Throttled Function(Return a new function that runs the original callback only when the time interval condition is met.) -->
+
+
+    <!--with throttling function  -->
+    <button id="throttle">Throttle Click</button>
+    <script>
+        let btn = document.getElementById('throttle')
+        function throttlefunction(func, delay) {
+            let prevtime = 0
+            return (...arg) => {
+                let now = new Date().getTime()
+                console.log(now - prevtime, delay);
+                if (now - prevtime > delay) {
+                    prevtime = now
+                    return func(...arg)
+                }
+            }
+        }
+        btn.addEventListener('click', throttlefunction(() => {
+            console.log('button clicked');
+
+        }, 1000))
+    </script>
+
+
+
+
+    <!-- ------------ -->
+    <!-- without throttling function -->
+    <!-- 
+    <button id="nothrottle">Click Me</button>
+    <script>
+        let btn=document.getElementById('nothrottle')
+        btn.addEventListener('click',()=>{
+            console.log("button is clicked"); 
+        })
+    </script> -->
+
+</body>
+
+</html>
