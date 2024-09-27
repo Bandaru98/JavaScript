@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button onclick="createtitle()">+</button> -->
+
+    <!-- id -->
+    <!-- <button id="btn">Count</button>
+    <h2 id="heading">0</h2> -->
+
+    <!-- class -->
+    <!-- <button class="btnclass">Transform</button>
+    <h2 class="heading">0</h2> -->
+
+    <!-- tagname -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ab.</p>
+    <h3>tagname</h3>
+    <img src="https://www.achieversit.com/assets/images/logo-white.png" alt="IMG">
+
+    <script>
+        // function createtitle() {
+        //     const title = document.createElement('h1')
+        //     title.textContent = ('Header')
+        //     document.body.append(title)
+        // }
+
+        //  getelementbyid------------use their is no use of #--------------
+        // querySelector--------------use for the indication (#) for id &7 class for (.)-----
+
+        // const button = document.getElementById('btn')
+        // const heading=document.getElementById('heading')
+
+        //getelementbyid or queryselector using-------
+
+        // const button = document.querySelector('#btn')
+        // const heading = document.querySelector('#heading')
+        // // console.log(heading);// indicates as object 
+
+        // let count = 0
+        // heading.innerText = count;
+        // button.addEventListener('click', function () {
+        //     heading.innerText = count;
+        //     count += 1
+        // })
+
+
+
+        //getelementbyClassName or queryselector using -------
+
+        // const button = document.querySelector('.btnclass')
+        // const heading = document.querySelector('.heading')
+
+        // console.log(heading);
+        // let counter = 0
+        // button.addEventListener('click', function () {
+        //     heading.innerText = counter;
+        //     counter += 1
+
+        // })
+
+
+
+        // getelementbyclassname means html collection no of items are there we get one item throgh[0]-----
+
+        // const button = document.getElementsByClassName('btnclass')
+        // const heading = document.getElementsByClassName('heading')
+
+        // console.log(heading);
+        // let counter = 0
+        // button[0].addEventListener('click', function () {
+        //     heading[0].innerText = counter;
+        //     counter += 1
+
+        // })
+
+
+
+        // tagname----classname -------these are giving html collection means just like array-----------
+        //queryselectorall---gives nodelist just like array---------------
+
+        const p = document.getElementsByTagName('p')
+        console.log(p[0].innerText);
+
+        const h3 = document.getElementsByTagName('h3')
+        console.log(h3[0].innerText);
+
+        const image = document.getElementsByTagName('img')
+        image[0].style.height = '100px'
+
+    </script>
+</body>
+
+</html>

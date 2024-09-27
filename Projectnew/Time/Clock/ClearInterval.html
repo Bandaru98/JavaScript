@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Interval Example</title>
+    <style>
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Counter</h1>
+    <h2 id="counter">0</h2>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        let counter = 0;
+        let intervalId;
+
+        function updateCounter() {
+            counter++;
+            document.getElementById('counter').textContent = counter;
+        }
+
+        document.getElementById('startButton').addEventListener('click', () => {
+            // Start the interval only if it's not already running
+            if (!intervalId) {
+                intervalId = setInterval(updateCounter, 1000);
+            }
+        });
+
+        document.getElementById('stopButton').addEventListener('click', () => {
+            // Clear the interval
+            clearInterval(intervalId);
+            intervalId = null; // Reset the intervalId
+        });
+    </script>
+</body>
+
+</html>
