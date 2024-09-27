@@ -55,3 +55,20 @@ let size2 = 10
 let arr8 = Array.from(Array(size2).keys())
 console.log(arr8.length);//10
 console.log(arr8);//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+
+
+
+//-------------
+const fruits = [
+    { id: 1, name: 'Apple' },
+    { id: 2, name: 'Banana' },
+    { id: 3, name: 'Cherry' },
+    { id: 4, name: 'Date' },
+    { id: 5, name: 'Elderberry' },
+    { id: 6, name: 'Fig' },
+    { id: 7, name: 'Grape' },
+    { id: 8, name: 'Honeydew' },
+    { id: 9, name: 'Kiwi' },
+    { id: 10, name: 'Lemon' }
+  ];
+console.log(fruits[0].name);

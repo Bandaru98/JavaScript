@@ -10,7 +10,7 @@ const fruits = [
     { id: 9, name: 'Kiwi' },
     { id: 10, name: 'Lemon' }
   ];
-
+  
   // Debounce function
   function debounce(func, delay) {
     let timeoutId;
