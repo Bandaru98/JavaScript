@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nameError{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="" >
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"placeholder='Enter name'>
+        <p id="nameError"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let formElm = document.querySelector('form')
+        let nameError = document.querySelector('#nameError')
+        formElm.addEventListener('submit',(event)=>{
+            event.preventDefault()
+            // console.log(event.target[0].value);
+            let username = event.target[0].value
+            if(username === '' || /\d/.test(username)){
+                nameError.innerText = 'Please Enter Your Name'
+            }
+      
+           
+        })
+    </script>
+</body>
+</html>

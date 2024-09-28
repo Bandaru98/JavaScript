@@ -1,4 +1,4 @@
-      /* Resetting the browser stylesheet */
+
       * {
           padding: 0;
           margin: 0;
@@ -8,7 +8,6 @@
           color: #fff;
       }
 
-      /* Styling the heading */
       h1 {
           display: flex;
           align-items: center;
@@ -16,8 +15,6 @@
           justify-content: center;
       }
 
-      /* Position the mouse pointer and
-      the background image */
       .main_box,
       .img,
       .mouse {
@@ -41,13 +38,10 @@
           background-position: center;
       }
 
-      /* Reduce the brightness of the image */
       .img {
           filter: brightness(10%);
       }
 
-      /* Make a circle with the clip-path property
-      for the spotlight in the effect */
       .mouse {
           clip-path: circle(5em at 0, 0);
       }
