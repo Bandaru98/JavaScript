@@ -1,0 +1,218 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" onclick="home()">
+    <title>Meal Finder</title>
+    <link rel="stylesheet" href="./item.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav>
+        <section>
+            <span><i class="fa-solid fa-utensils"></i></span>
+            <span>MEAL FINDER</span>
+        </section>
+        <li id='click' onclick="sel()"><i class="fa-solid fa-bars"></i></li>
+        <section id="select">
+            <select id="mySelect">
+            </select>
+            <li id="mark" onclick="closee()"><i class="fa-solid fa-circle-xmark"></i></li>
+        </section>
+    </nav>
+    <section class="div">
+        <div class="div1">
+            <input type="search" placeholder="search recipes here" id="searchInput">
+            <li id="searchButton" onclick="searchButton()"><i class="fa-solid fa-magnifying-glass"></i></li>
+        </div>
+        <span class="id">What are your favourite cuisines?</span>
+        <span style="padding-left: 31pc;"><small>PERSONALIZE YOUR EXPERIENCE</small></span>
+    </section>
+    <h2 id="head4">MEALS</h2>
+    <h2 id="head3">CATEGORIES</h2>
+    <p id="para7"></p>
+    <p id="searchResult"></p>
+
+    <div id="container"></div>
+
+    <div class="data"></div>
+    <div id="decrimination"></div>
+    <div class="bottomCategory"></div>
+    <div class="container3"></div>
+
+
+    <script>
+        // Hamburger functionality
+        const select = document.getElementById('mySelect');
+        const click = document.getElementById('click');
+
+        function sel() {
+            click.style.display = 'none';
+            select.style.display = 'block';
+            let array = ['Beef', 'Chicken', 'Dessert', 'Lamb', 'Miscellaneous', 'Pasta', 'Pork', 'Seafood', 'Side', 'Starter', 'Vegan', 'Vegetarian', 'Breakfast', 'Goat'];
+            console.log(array);
+            array.forEach(element => {
+                const opt = document.createElement('option');
+                opt.textContent = element;
+                opt.value = element;
+                select.appendChild(opt);
+            });
+        };
+
+        // Close button functionality
+        function closee() {
+            click.style.display = 'block';
+            select.style.display = 'none';
+        };
+
+        async function searchButton() {
+            // const searchButton=document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput').value;
+            let searchResult = document.getElementById('searchResult');
+            searchResult.innerHTML = ''
+            const searchh = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`);
+            const response = await searchh.json();
+            if (response.meals && response.meals.length > 0) {
+                searchMeal = ''
+                response.meals.forEach(searchdata => {
+                    searchMeal += `
+                    <div id='unorder'>
+                   
+                        <ul id='order'>
+                            <li> <h5 id='paralist'> ${searchdata.strMeal}</h5></li>
+                            <li><img src="${searchdata.strMealThumb}" alt='${searchdata.strMeal}' width=90%> </li>
+                            </ul>
+                        </div>
+                        `;
+                });
+                searchMeal += `</div>`;
+                searchResult.innerHTML += searchMeal;
+                head4.style.display = 'block';
+                head3.style.display = 'none';
+            }
+            else {
+                searchResult.innerHTML = `<code>${searchInput} item is not Available</code>`;
+                searchResult.style.marginLeft = '100px';
+                searchResult.style.fontSize = '25px';
+                searchResult.style.display = 'block';
+            }
+        };
+
+        // Display the categories by using API fetch method  
+        const decrimination=document.getElementById('decrimination');
+        let fun = async () => {
+            const container = document.getElementById('container');
+            const dataContainer = document.querySelector('.data');
+            const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+            const data = await response.json();
+            let categoriesHtml = '';
+
+            data.categories.forEach(category => {
+                categoriesHtml += `
+                    <div class='container'>
+                        <h4 data-clickid="${category.strCategory}" id="head5">${category.strCategory}</h4>
+                        <img class="image hidden" alt="${category.strCategory}" data-clickid="${category.strCategory}" src="${category.strCategoryThumb}">
+                    </div>
+                `;
+            });
+        
+            container.innerHTML = categoriesHtml;
+            head3.style.display='none';
+            const images = document.querySelectorAll('.image');
+            images.forEach(img => {
+                img.addEventListener('click', async function (e) {
+                    const category = e.target.getAttribute('data-clickid');
+                    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${category}`);
+                    const mealsData = await response.json();
+                    if (mealsData && mealsData.meals) {
+                        let mealsHtml = '';
+                        mealsData.meals.forEach(meal => {
+                            mealsHtml += `
+                                <div class='container1'>
+                                    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width=90% height=200px data-clickid='${meal.idMeal}' id="clickImg">
+                                    <p id="para">${meal.strMeal}</p>
+                                    <p style="display:none" id="paragraph">No Meals are available</p>
+                                </div>
+                            `;
+                        });
+
+                        dataContainer.innerHTML = mealsHtml;
+                        container.style.display = 'none';
+                       
+                        document.getElementById('head4').style.display = 'block';
+                        container.style.display = 'none';
+
+
+
+                        const mealImages = document.querySelectorAll('#clickImg');
+                        mealImages.forEach(mealImg => {
+                            mealImg.addEventListener('click', async function () {
+                                const mealId = this.getAttribute('data-clickid');
+                                const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
+                                const mealData = await response.json();
+                                if (mealData && mealData.meals) {
+                                    let mealDetailsHtml = '';
+                                    mealData.meals.forEach(mealDetail => {
+                                        mealDetailsHtml += `
+                                            <div id='namee'>
+                                                <span class='p'><i class="fa-solid fa-house"></i></span>
+                                                <span class='p'><i class="fa-solid fa-forward"></i></span>
+                                                <p id="para2">${mealDetail.strMeal}</p>
+                                            </div>
+                                            <h4 id='heading-3'>MEAL DETAILS</h4>
+                                            <div class='flexx'> 
+                                                <img src='${mealDetail.strMealThumb}' width=40% alt="${mealDetail.strMeal}" id="clickImg2"/>
+                                                <section class=section1>   
+                                                    <h4 id='heading-4'>${mealDetail.strMeal}</h4>
+                                                    <h4>CATEGORY: ${mealDetail.strCategory}</h4>
+                                                    <p>Source: <a href="${mealDetail.strYoutube}" target="_blank">${mealDetail.strYoutube}</a></p>
+                                                    <p>Tags: ${mealDetail.strTags}</p>
+                                                    <p id='ingredients'>Ingredients:
+                                                        <ul>                                                         
+                                                           <span>${getIngredientsList(mealDetail)}</span>
+                                                        </ul>
+                                                    </p>
+                                                </section>
+                                            </div>
+                                            <div id='instructions'>
+                                               Instructions:
+                                               <span style='display:block'>${mealDetail.strInstructions}<span>
+                                            </div>
+                                        `;
+                                    });
+                                    document.querySelector('.container3').innerHTML = mealDetailsHtml;
+                                    // container.style.display = 'none';
+                                }
+                            });
+                        });
+                    } else {
+                        document.getElementById('paragraph').style.display = 'block';
+                    }
+                });
+            });
+        };
+
+        // Helper function to generate ingredients and measurements list
+        function getIngredientsList(meal) {
+            let ingredientsList = '';
+            for (let i = 1; i <= 20; i++) {
+                const ingredient = meal[`strIngredient${i}`];
+                const measure = meal[`strMeasure${i}`];
+                if (ingredient && ingredient !== '') {
+                    ingredientsList += `<li style='list-style:none'><i class="fa-solid fa-spoon"></i> ${measure} ${ingredient}</li>`;
+                }
+            }
+            return ingredientsList;
+        }
+
+        fun();
+
+    
+    </script>
+</body>
+
+</html> -->

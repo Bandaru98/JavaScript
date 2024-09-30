@@ -5,6 +5,7 @@ function calculateAge() {
     const day = parseInt(document.getElementById('day').value);
 
     const birthDate = new Date(year, month, day);
+    
     const currentDate = new Date();
 
     let ageYears = currentDate.getFullYear() - birthDate.getFullYear();

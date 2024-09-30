@@ -8,6 +8,7 @@ function getDOB() {
     }
 
     const dob = new Date(dobInput);
+    
     const currentDate = new Date(currentDateInput);
 
     let age = currentDate.getFullYear() - dob.getFullYear();
