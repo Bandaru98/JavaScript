@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">Dom Ex</h1>
+    <div id="container">
+        <p id="firstp">lorem first p</p>
+        <p id="secondp" class='n1'>lorem second p</p>
+    </div>
+
+    <button id="addbtn">Add</button>
+    <button id="removebtn">Remove</button>
+
+    <script>
+        // Using getElementById
+        let title = document.getElementById('title')
+
+        // Using setAttribute and getAttribute
+        title.setAttribute('set', 'setname')
+        console.log(title);
+        console.log(title.getAttribute('set'));//setname
+
+        // Using querySelector
+        let container = document.querySelector('#container')
+
+        // Creating a new paragraph element
+        let newp = document.createElement('p')
+        newp.textContent = 'Lorem New p'
+
+        // Using insertBefore
+        let firstp = document.getElementById('firstp')
+        container.insertBefore(newp, firstp)// Insert new paragraph before firstPara
+
+        // Adding click event to "Add New Paragraph" button
+        document.getElementById('addbtn').addEventListener('click', () => {
+            const anop = document.createElement('p')
+            anop.textContent = 'Lorem Another p'
+            container.appendChild(anop)
+        })
+
+        // Using removeChild
+        document.getElementById('removebtn').addEventListener('click', () => {
+            if (container.lastChild) {
+                container.removeChild(container.lastChild)
+            }
+        })
+
+        // Using style property
+        title.style.color = 'blue'
+        title.style.fontSize = '2em';
+
+        // Using classList to add/remove class
+        const secondp = document.getElementById('secondp')
+        console.log(secondp.classList);
+
+        secondp.classList.remove('n1')// Remove n1 class
+        console.log(secondp.classList);
+
+        secondp.classList.add('newn1')// Add newn1 class
+        console.log(secondp.classList);
+
+        // Using getElementsByName and getElementsByTagName
+        const allp = document.getElementsByTagName('p')
+        console.log('Allpara', allp);
+
+
+
+    </script>
+
+</body>
+
+</html>

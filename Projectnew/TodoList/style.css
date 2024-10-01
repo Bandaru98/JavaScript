@@ -1,0 +1,31 @@
+header {
+    height: 100px;
+    background-color: aquamarine;
+    line-height: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+#center {
+    text-align: center;
+}
+
+#tablestyle {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 350px;
+    height: 15x;
+    text-align: center;
+}
+
+table td:nth-child(2) {
+    width: 100px;
+    /* background-color:green ; */
+}
+
+td {
+    border: 1px solid;
+}

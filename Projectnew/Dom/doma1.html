@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit List</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        .fruit {
+            font-size: 1.2em;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="fru">Fruit Lists</h2>
+    <div id="container">
+        <ul id="fruitList"></ul>
+    </div>
+    <button id="add">Add Fruit</button>
+    <button id="remove">Remove Last Fruit</button>
+    <button id="highlight">Highlight All Fruits</button>
+
+    <script>
+        let fruitnames = ['Apple', 'Banana', 'Grapes', 'Guava', 'Orange', 'Papaya'];
+        let container = document.getElementById('fruitList');
+
+        fruitnames.forEach(fru => {
+            const fruitElement = document.createElement('li');
+            fruitElement.textContent = fru;
+            fruitElement.setAttribute('class', 'fruit');
+            container.appendChild(fruitElement);
+        });
+
+        document.getElementById('add').addEventListener('click', () => {
+            const newfruit = prompt('Enter Fruit Name: ');
+            if (newfruit) {
+                const newFruitElement = document.createElement('li');
+                newFruitElement.textContent = newfruit;
+                newFruitElement.classList.add('fruit');
+                container.appendChild(newFruitElement);
+            }
+        });
+
+        document.getElementById('remove').addEventListener('click', () => {
+            if (container.lastChild) {
+                container.removeChild(container.lastChild);
+            }
+        });
+
+        document.getElementById('highlight').addEventListener('click', () => {
+            const allFruits = document.getElementsByTagName('li');
+            for (let i = 0; i < allFruits.length; i++) {
+                allFruits[i].classList.toggle('highlight');
+            }
+        });
+
+        const fru = document.getElementById('fru');
+        fru.style.color = 'blue';
+        fru.style.fontSize = '2em';
+
+        fru.setAttribute('data-info', 'This is a list of fruits');
+        console.log(fru.getAttribute('data-info'));
+
+    </script>
+</body>
+
+</html>
