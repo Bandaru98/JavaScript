@@ -1,9 +1,18 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
 header {
     height: 100px;
-    background-color: aquamarine;
+    background-color: #00d1d1;
     line-height: 100px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Lucida Handwriting', cursive;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 #center {
@@ -28,4 +37,39 @@ table td:nth-child(2) {
 
 td {
     border: 1px solid;
+}
+
+/* extra styling */
+
+
+input[type="submit"]:hover {
+    background-color: #38e6e6;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e43c3c;
+}
+
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 200px;
+    }
+
+    table {
+        max-width: 100%;
+    }
+
+    td {
+        padding: 10px;
+    }
 }
