@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+        .header, .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            width: 45%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card .number {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+        .chart {
+            height: 250px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Dashboard</h1>
+    </div>
+    
+    <div class="main">
+        <div class="card">
+            <h3>Total Users</h3>
+            <div class="number">1,234</div>
+        </div>
+        <div class="card">
+            <h3>New Users (This Month)</h3>
+            <div class="number">123</div>
+        </div>
+        <div class="card">
+            <h3>Active Users</h3>
+            <div class="number">567</div>
+        </div>
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <div class="number">$12,345</div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="card">
+            <h3>Monthly Signups</h3>
+            <canvas id="signupChart" class="chart"></canvas>
+        </div>
+        <div class="card">
+            <h3>Revenue Breakdown</h3>
+            <canvas id="revenueChart" class="chart"></canvas>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2024 Dashboard Inc.</p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Data for Monthly Signups chart
+    const signupCtx = document.getElementById('signupChart').getContext('2d');
+    const signupChart = new Chart(signupCtx, {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'Signups',
+                data: [100, 200, 150, 300, 250, 400, 350, 500, 450, 600, 550, 700],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Data for Revenue Breakdown chart
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    const revenueChart = new Chart(revenueCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+            datasets: [{
+                label: 'Revenue',
+                data: [3000, 2000, 4000, 3345],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
+        //local & session storage has setItem it consists(key&value) ---------
+
+
+        //local storage stores the data permanently-----------
+
         // window.localStorage.setItem('username','madhu')
-        window.sessionStorage.setItem('username','M')
+        // let x=localStorage.getItem('username')
+        // console.log(x);
+
+
+
+        //Session storage stores the data temporary-----------------
+
+        // window.sessionStorage.setItem('city','Kdapa')
+        // let y=sessionStorage.getItem('city')
+        // console.log(y);
+
+
+        //without window also same output as localstorage.setItem('key','value')
+
+        //------------------
+        let user = {
+            name: 'Jessy',
+            city: 'plvd',
+            age: '2year'
+        }
+        //object converts as json means key and value are in {string}-------------
+        let data = JSON.stringify(user)
+        console.log(data);//{"name":"Jessy","city":"plvd","age":"2year"}
+
+        //object converts as json means key and value are in {string}------------
+        localStorage.setItem('user', data)
+        let userdata = localStorage.getItem('user')
+        console.log(userdata);//{"name":"Jessy","city":"plvd","age":"2year"}
+
+        //string converts as object means key and value are object----------only value is in string-----
+        let userdataObj = JSON.parse(userdata)
+        console.log(userdataObj);//{name: 'Jessy', city: 'plvd', age: '2year'}
+
+
     </script>
 </body>
+
 </html>

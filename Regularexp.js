@@ -36,11 +36,43 @@
 // console.log(city.match(/[n]/g));//[ 'n', 'n' ]-------------without g takes first value
 
 
-let username='madhavi5'
-console.log(/[0-9]/.test(username));//treat as digit number--------[0-9] or/\/d are same
-console.log(/\d/.test(username));//treat as digit number
 
-console.log(/d/.test(username));//treats as word
+// let username='madhavi5'
+// console.log(/[0-9]/.test(username));//treat as digit number--------[0-9] or/\/d are same
+// console.log(/\d/.test(username));//treat as digit number
+
+// console.log(/d/.test(username));//treats as word
+
+
+// let username = 'Madhavi78'
+// if(/\d/.test(username)){
+//     console.log('user by mistake put number(s)');
+// }else{
+//     console.log('user name is correct');
+// }
+
+
+// let x = 560067
+// console.log(/[5-6]{2}[0-9]{4}/.test(x));
+
+
+// let y=1234567890
+// console.log(/[0-2]{1}[0-9]{9}/.test(y));
+
+
+// let bikeReg = '8bng4567'
+// console.log(/^[a-z]{3}[0-9]{4}/.test(bikeReg));
+
+
+// let fruits='apple, banana, orange'
+// let fru = fruits.replace('apple','fru')
+// console.log(fru);
+
+
+// let username='    Jeslyn'
+// console.log(username.trim());
+
+
 
 
 

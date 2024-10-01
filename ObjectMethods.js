@@ -20,7 +20,6 @@ e.num()//01 2 3 true number
 e.d = '4'  // if position is exist it will replace (overwrite), if position is not exist it will create
 e.num()//01 2 3 4 number
 
-
 //object.keys--------------
 // Object.keys() creates an array containing the keys of an object.
 
@@ -140,8 +139,10 @@ newUsers.active = true;
 console.log(newUsers);//{ username: 'xyz', password: '***' }
 
 
+
 //Object.getPrototypeOf----------------
 //  is used to get the internal hidden [[Prototype]] of an object, also accessible through the __proto__ property.
+
 const emp = ['Ron', 'April', 'Andy', 'Leslie'];
 Object.getPrototypeOf(emp);
 console.log(emp);//[ 'Ron', 'April', 'Andy', 'Leslie' ]

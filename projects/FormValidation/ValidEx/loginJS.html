@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+    }
+    .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    .success {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <div id="successMessage" class="success">Login successful! Redirecting...</div>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <input type="text" id="usernameOrEmail" placeholder="Username or Email">
+        <span id="usernameOrEmailError" class="error"></span>
+        <input type="password" id="password" placeholder="Password">
+        <span id="passwordError" class="error"></span>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<script>
+function validateForm() {
+    var usernameOrEmail = document.getElementById("usernameOrEmail").value.trim();
+    var password = document.getElementById("password").value.trim();
+
+    // Validation logic
+    var isValid = true;
+    document.getElementById("usernameOrEmailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+
+    if (usernameOrEmail === "") {
+        document.getElementById("usernameOrEmailError").innerHTML = "Please enter your username or email.";
+        isValid = false;
+    }
+
+    if (password === "") {
+        document.getElementById("passwordError").innerHTML = "Please enter your password.";
+        isValid = false;
+    }
+
+    if (isValid) {
+        var registrationDetails = JSON.parse(localStorage.getItem('registrationDetails'));
+        if (registrationDetails) {
+            var registeredUser = registrationDetails.username;
+            var registeredEmail = registrationDetails.email;
+            var registeredPassword = registrationDetails.password;
+
+            if ((usernameOrEmail === registeredUser || usernameOrEmail === registeredEmail) && password === registeredPassword) {
+                // Mocking successful login
+                document.getElementById("successMessage").style.display = "block";
+                setTimeout(function() {
+                    window.location.href = "dashboard.html"; // Redirect to dashboard page
+                }, 2000); // Redirect after 2 seconds
+                return false; // Prevent form submission
+            } else {
+                document.getElementById("passwordError").innerHTML = "Invalid username/email or password.";
+                return false;
+            }
+        } else {
+            document.getElementById("passwordError").innerHTML = "No registration data found. Please register first.";
+            return false;
+        }
+    }
+
+    return false;
+}
+</script>
+
+</body>
+</html>

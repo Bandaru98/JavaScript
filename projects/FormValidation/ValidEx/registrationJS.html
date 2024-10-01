@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="successMessage" class="success">Registration successful! Redirecting to login page...</div>
+
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <h2>Registration</h2>
+        <input type="text" id="username" placeholder="Username">
+        <span id="usernameError" class="error"></span>
+        <input type="email" id="email" placeholder="Email">
+        <span id="emailError" class="error"></span>
+        <input type="tel" id="mobile" placeholder="Mobile Number">
+        <span id="mobileError" class="error"></span>
+        <input type="password" id="password" placeholder="Password">
+        <span id="passwordError" class="error"></span>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+        <span id="confirmPasswordError" class="error"></span>
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mobile = document.getElementById("mobile").value.trim();
+            var password = document.getElementById("password").value.trim();
+            var confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            // Regular expressions for validation
+            var usernameRegex = /^[a-zA-Z0-9_]{5,}$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var mobileRegex = /^[6-9][0-9]{9}$/;
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            // Validation logic
+            var isValid = true;
+            document.getElementById("usernameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("mobileError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("confirmPasswordError").innerHTML = "";
+
+            if (!usernameRegex.test(username)) {
+                document.getElementById("usernameError").innerHTML = "Username must be at least 5 characters long and can only contain letters, numbers, and underscores.";
+                isValid = false;
+            }
+
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerHTML = "Invalid email address.";
+                isValid = false;
+            }
+
+            if (!mobileRegex.test(mobile)) {
+                document.getElementById("mobileError").innerHTML = "Mobile number must be a 10-digit number.";
+                isValid = false;
+            }
+
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 8 characters long, contain at least one digit, one lowercase letter, and one uppercase letter.";
+                isValid = false;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match.";
+                isValid = false;
+            }
+
+            if (isValid) {
+                var registrationDetails = {
+                    username: username,
+                    email: email,
+                    mobile: mobile,
+                    password: password
+                };
+                localStorage.setItem('registrationDetails', JSON.stringify(registrationDetails));
+                document.getElementById("successMessage").style.display = "block";
+                setTimeout(function () {
+                    window.location.href = "loginJS.html"; // Redirect to login page
+                }, 2000); // Redirect after 2 seconds
+                return false; // Prevent form submission
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+
+</html>
