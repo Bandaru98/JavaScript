@@ -16,7 +16,9 @@ function mylife(place) {
 mylife('kadapaa')
 
 
-//ternary-----
+//ternary-----condotion ? statement : statement-----------
+
+
 function checkevenodd(num) {
     num % 2 == 0 ? console.log('It is an even number') : console.log('It is an odd number');
 
