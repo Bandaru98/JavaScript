@@ -107,6 +107,7 @@
 // Returns the primitive value of the specified object.
 
 
+
 // Array Methods------------------------
 // Here is a list of each method and its description.
 
@@ -173,6 +174,7 @@
 
 // 21	unshift()
 // Adds one or more elements to the front of an array and returns the new length of the array.
+
 
 // Date Methods--------------------
 // Here is a list of each method and its description.
@@ -318,6 +320,7 @@
 // 47	valueOf()
 // Returns the primitive value of a Date object.
 
+
 // Date Static Methods---------------------
 // In addition to the many instance methods listed previously, the Date object also defines two static methods. These methods are invoked through the Date( ) constructor itself −
 
@@ -326,6 +329,7 @@
 
 // 2	Date.UTC( )
 // Returns the millisecond representation of the specified UTC date and time.
+
 
 // Math Methods---------------------------
 // Here is a list of each method and its description.
@@ -386,6 +390,8 @@
 
 // 19	toSource()
 // Returns the string "Math".
+
+
 
 // RegExp Methods--------------------
 // Here is a list of each method and its description.
