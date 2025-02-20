@@ -18,7 +18,6 @@
 
 
 
-
 // Example of variable declarations
 // var x = 10;  // var is function-scoped or globally scoped if outside a function
 // let y = 20;  // let is block-scoped (i.e., within the nearest set of curly braces {})
