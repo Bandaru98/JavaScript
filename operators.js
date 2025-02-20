@@ -5,7 +5,6 @@
 //    10       +       20
 //  operand operator operand
 
-
 // arithmetic
 let a = 100;
 let b = 10;

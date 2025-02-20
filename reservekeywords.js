@@ -87,6 +87,7 @@ f3()
 
 //var use it anywhere in our code but var variable inside a function u can use it in with in the function
 //ex 1
+
 var a1 = 100
 function fun() {
     var b1 = 10
@@ -105,7 +106,9 @@ function fun1() {
 fun1()
 // console.log(ab); // ReferenceError-- ab is not defined bcz --var variable inside a function u can use it in with in the function
 
+
 //ex 3
+
 var a3 = 10
 var a3 = 8
 a3 = 105

@@ -15,7 +15,6 @@ function mylife(place) {
 }
 mylife('kadapaa')
 
-
 //ternary-----condotion ? statement : statement-----------
 
 

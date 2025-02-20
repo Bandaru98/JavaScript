@@ -20,7 +20,6 @@ let even=[2,4,6,8]
 let number=[...odd,...even]
 console.log(number);
 
-
 //rest
 let array=[1,2,3,4,5]
 function f1(...ary){

@@ -30,6 +30,7 @@ console.log(i);//16
 let j=Math.PI
 console.log(j);//3.141592653589793
 
+
 //random
 let k=Math.random()
 console.log(k*10);//4.870302082402034
